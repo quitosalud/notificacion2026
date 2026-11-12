@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Notificaciones 2026 - Secretaría de Salud</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #073b75, #1684c5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .login {
+      background: white;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #073b75;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 14px;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      background: #0868b1;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #064b85;
+    }
+
+    #error {
+      color: #d62828;
+      margin-top: 15px;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+
+    <h2>NOTIFICACIONES 2026</h2>
+
+    <p>
+      Secretaría de Salud<br>
+      Municipio del Distrito Metropolitano de Quito
+    </p>
+
+    <form id="loginForm">
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Ingrese su contraseña"
+        autocomplete="off"
+        required
+      >
+
+      <button type="submit">
+        INGRESAR
+      </button>
+
+    </form>
+
+    <div id="error">
+      Contraseña incorrecta. Intente nuevamente.
+    </div>
+
+  </div>
+
+  <script>
+
+    // CONTRASEÑA
+    const CLAVE = "Notificacion2026";
+
+    // ENLACE EXPERIENCE BUILDER
+    const ENLACE =
+      "https://experience.arcgis.com/experience/7ad008d36c874889b903e90470f5a15d";
+
+    document.getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const password =
+          document.getElementById("password").value;
+
+        if (password === CLAVE) {
+
+          window.location.href = ENLACE;
+
+        } else {
+
+          document.getElementById("error")
+            .style.display = "block";
+
+          document.getElementById("password")
+            .value = "";
+
+          document.getElementById("password")
+            .focus();
+
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
